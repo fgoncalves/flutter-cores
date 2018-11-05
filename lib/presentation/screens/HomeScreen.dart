@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../../base/Screen.dart';
 import '../../data/models/Level.dart';
 import '../../data/repositories/LevelsRepository.dart';
+import '../utils/navutils.dart';
 import '../widgets/LevelItem.dart';
+import 'LevelScreen.dart';
 
 class Home extends StatefulWidget {
   final LevelsRepository levelsRepository;
@@ -45,15 +47,19 @@ class HomeState extends State<Home> {
               SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           itemCount: _levels.length,
           itemBuilder: (BuildContext context, int position) =>
-              _createCard(position),
+              _createCard(context, position),
         ),
       ),
     );
   }
 
-  Widget _createCard(position) {
+  Widget _createCard(BuildContext context, int position) {
     if (position >= _levels.length) return null;
 
-    return LevelCard(level: _levels[position]);
+    var level = _levels[position];
+    return LevelCard(
+      level: level,
+      onTap: (level) => navigateTo(context, (context) => LevelScreen(level)),
+    );
   }
 }
