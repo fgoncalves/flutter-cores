@@ -43,6 +43,7 @@ class HomeState extends State<Home> {
         child: GridView.builder(
           gridDelegate:
               SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          itemCount: _levels.length,
           itemBuilder: (BuildContext context, int position) =>
               _createCard(position),
         ),
@@ -50,7 +51,7 @@ class HomeState extends State<Home> {
     );
   }
 
-  LevelCard _createCard(position) {
+  Widget _createCard(position) {
     if (position >= _levels.length) return null;
 
     return LevelCard(level: _levels[position]);
