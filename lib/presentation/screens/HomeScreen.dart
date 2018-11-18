@@ -1,10 +1,10 @@
+import 'package:cores/base/Screen.dart';
+import 'package:cores/data/models/Level.dart';
+import 'package:cores/data/repositories/LevelsRepository.dart';
+import 'package:cores/presentation/utils/navutils.dart';
+import 'package:cores/presentation/widgets/LevelItem.dart';
 import 'package:flutter/material.dart';
 
-import '../../base/Screen.dart';
-import '../../data/models/Level.dart';
-import '../../data/repositories/LevelsRepository.dart';
-import '../utils/navutils.dart';
-import '../widgets/LevelItem.dart';
 import 'LevelScreen.dart';
 
 class Home extends StatefulWidget {

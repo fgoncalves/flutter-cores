@@ -7,19 +7,21 @@ class Screen extends StatelessWidget {
 
   const Screen({
     Key key,
-    @required this.title,
+    this.title,
     @required this.body,
     this.fab,
-  })  : assert(title != null),
-        assert(body != null),
+  })  : assert(body != null),
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var appBar = title == null
+        ? null
+        : AppBar(
+            title: Text(title),
+          );
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
+      appBar: appBar,
       body: body,
       floatingActionButton: fab,
     );

@@ -1,7 +1,6 @@
+import 'package:cores/data/repositories/LevelsRepository.dart';
+import 'package:cores/presentation/screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
-
-import 'data/repositories/LevelsRepository.dart';
-import 'presentation/screens/HomeScreen.dart';
 
 void main() => runApp(MyApp());
 
