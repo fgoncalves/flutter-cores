@@ -58,55 +58,35 @@ class _LevelScreenState extends State<LevelScreen>
             SizedBox(
               height: 24.0,
             ),
-            Expanded(
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: CircleAvatar(
-                      radius: 80.0,
-                      backgroundColor:
-                          Color(getColorHexFromStr(COLOR_MAP[colors[0]])),
-                    ),
-                  ),
-                  Expanded(
-                    child: CircleAvatar(
-                      radius: 80.0,
-                      backgroundColor:
-                          Color(getColorHexFromStr(COLOR_MAP[colors[1]])),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            buildColorRow(colors[0], colors[1]),
             Text(
               widget._level.exercises[0].correctColorName,
-              style: TextStyle(
-                fontSize: 28.0,
-                fontWeight: FontWeight.bold
-              ),
+              style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
             ),
-            Expanded(
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: CircleAvatar(
-                      radius: 80.0,
-                      backgroundColor:
-                          Color(getColorHexFromStr(COLOR_MAP[colors[2]])),
-                    ),
-                  ),
-                  Expanded(
-                    child: CircleAvatar(
-                      radius: 80.0,
-                      backgroundColor:
-                          Color(getColorHexFromStr(COLOR_MAP[colors[3]])),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            buildColorRow(colors[2], colors[3]),
           ],
         ),
+      ),
+    );
+  }
+
+  Expanded buildColorRow(String left, String right) {
+    return Expanded(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: CircleAvatar(
+              radius: 80.0,
+              backgroundColor: Color(getColorHexFromStr(COLOR_MAP[left])),
+            ),
+          ),
+          Expanded(
+            child: CircleAvatar(
+              radius: 80.0,
+              backgroundColor: Color(getColorHexFromStr(COLOR_MAP[right])),
+            ),
+          ),
+        ],
       ),
     );
   }
