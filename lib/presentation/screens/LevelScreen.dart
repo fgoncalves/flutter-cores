@@ -1,5 +1,6 @@
 import 'package:cores/base/Screen.dart';
 import 'package:cores/data/models/Level.dart';
+import 'package:cores/presentation/screens/ColorItem.dart';
 import 'package:cores/presentation/utils/colorutils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,6 +17,7 @@ class LevelScreen extends StatefulWidget {
 class _LevelScreenState extends State<LevelScreen>
     with SingleTickerProviderStateMixin {
   int totalTimeMillis;
+  int _numberOfReadyItems;
   AnimationController _controller;
 
   _LevelScreenState(this.totalTimeMillis);
@@ -24,15 +26,7 @@ class _LevelScreenState extends State<LevelScreen>
   void initState() {
     SystemChrome.setEnabledSystemUIOverlays([]);
 
-    _controller = AnimationController(
-        vsync: this,
-        duration: Duration(
-          milliseconds: totalTimeMillis,
-        ));
-
-    _controller.addListener(() => setState(() {}));
-
-    _controller.forward();
+    initExercise();
     super.initState();
   }
 
@@ -70,24 +64,49 @@ class _LevelScreenState extends State<LevelScreen>
     );
   }
 
-  Expanded buildColorRow(String left, String right) {
+  Expanded buildColorRow(
+    String left,
+    String right,
+  ) {
     return Expanded(
       child: Row(
         children: <Widget>[
           Expanded(
-            child: CircleAvatar(
+            child: ColorItem(
               radius: 80.0,
-              backgroundColor: Color(getColorHexFromStr(COLOR_MAP[left])),
+              color: getColorHexFromStr(COLOR_MAP[left]),
+              onAnimationFinished: _onAnimationFinished,
             ),
           ),
           Expanded(
-            child: CircleAvatar(
+            child: ColorItem(
               radius: 80.0,
-              backgroundColor: Color(getColorHexFromStr(COLOR_MAP[right])),
+              color: getColorHexFromStr(COLOR_MAP[right]),
+              onAnimationFinished: _onAnimationFinished,
             ),
           ),
         ],
       ),
     );
+  }
+
+  void initExercise() {
+    _numberOfReadyItems = 0;
+
+    _controller = AnimationController(
+        vsync: this,
+        duration: Duration(
+          milliseconds: totalTimeMillis,
+        ));
+
+    _controller.addListener(() => setState(() {}));
+  }
+
+  void _onAnimationFinished() {
+    _numberOfReadyItems++;
+    if (_numberOfReadyItems == 4) {
+      _controller.forward();
+      return;
+    }
   }
 }
