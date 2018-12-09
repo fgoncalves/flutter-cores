@@ -1,4 +1,4 @@
-import 'package:cores/presentation/screens/ColorItem.dart';
+import 'package:cores/presentation/widgets/ColorItem.dart';
 import 'package:flutter/material.dart';
 
 class Round extends StatefulWidget {

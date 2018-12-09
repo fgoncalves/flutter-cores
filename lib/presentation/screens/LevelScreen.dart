@@ -16,17 +16,19 @@ class LevelScreen extends StatefulWidget {
 
 class _LevelScreenState extends State<LevelScreen>
     with SingleTickerProviderStateMixin {
-  int totalTimeMillis;
-  int _numberOfReadyItems;
+  int _totalTimeMillis;
+  int _currentRoundIndex;
   AnimationController _controller;
 
-  _LevelScreenState(this.totalTimeMillis);
+  _LevelScreenState(this._totalTimeMillis);
 
   @override
   void initState() {
     SystemChrome.setEnabledSystemUIOverlays([]);
 
-    initRound();
+    _currentRoundIndex = 0;
+
+    _initRound();
     super.initState();
   }
 
@@ -39,7 +41,7 @@ class _LevelScreenState extends State<LevelScreen>
 
   @override
   Widget build(BuildContext context) {
-    final colors = widget._level.exercises[0].colors;
+    final colors = widget._level.exercises[_currentRoundIndex].colors;
 
     return Screen(
       body: Padding(
@@ -53,11 +55,13 @@ class _LevelScreenState extends State<LevelScreen>
               height: 24.0,
             ),
             Round(
+              key: Key("$_currentRoundIndex"),
               topLeftColor: getColorHexFromStr(COLOR_MAP[colors[0]]),
               topRightColor: getColorHexFromStr(COLOR_MAP[colors[1]]),
               bottomLeftColor: getColorHexFromStr(COLOR_MAP[colors[2]]),
               bottomRightColor: getColorHexFromStr(COLOR_MAP[colors[3]]),
-              colorName: widget._level.exercises[0].correctColorName,
+              colorName:
+                  widget._level.exercises[_currentRoundIndex].correctColorName,
               onRoundFinishedLoading: () => _controller.forward(),
             ),
           ],
@@ -66,13 +70,28 @@ class _LevelScreenState extends State<LevelScreen>
     );
   }
 
-  void initRound() {
+  void _initRound() {
     _controller = AnimationController(
         vsync: this,
         duration: Duration(
-          milliseconds: totalTimeMillis,
+          milliseconds: _totalTimeMillis,
         ));
 
-    _controller.addListener(() => setState(() {}));
+    _controller.addListener(() {
+      setState(() {});
+      if (_controller.value == 1.0) _onTimerRunOut();
+    });
+  }
+
+  void _onTimerRunOut() {
+    if (_currentRoundIndex == widget._level.exercises.length - 1) {
+      print("level finished");
+      return;
+    }
+
+    _controller.reset();
+    setState(() {
+      _currentRoundIndex++;
+    });
   }
 }

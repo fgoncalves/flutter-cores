@@ -16,7 +16,17 @@ class LevelsRepository {
           correctColorId: "blue",
           colors: ["yellow", "blue", "green", "red"],
           correctColorName: "Azul",
-        )
+        ),
+        Exercise(
+          correctColorId: "light-blue",
+          colors: ["light-blue", "beige", "pink", "purple"],
+          correctColorName: "Azul cueca",
+        ),
+        Exercise(
+          correctColorId: "gray",
+          colors: ["red", "brown", "orange", "black"],
+          correctColorName: "Cinzento",
+        ),
       ],
     ),
     Level(
