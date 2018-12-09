@@ -1,7 +1,7 @@
 import 'package:cores/base/Screen.dart';
 import 'package:cores/data/models/Level.dart';
-import 'package:cores/presentation/screens/ColorItem.dart';
 import 'package:cores/presentation/utils/colorutils.dart';
+import 'package:cores/presentation/widgets/Round.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -26,7 +26,7 @@ class _LevelScreenState extends State<LevelScreen>
   void initState() {
     SystemChrome.setEnabledSystemUIOverlays([]);
 
-    initExercise();
+    initRound();
     super.initState();
   }
 
@@ -52,47 +52,21 @@ class _LevelScreenState extends State<LevelScreen>
             SizedBox(
               height: 24.0,
             ),
-            buildColorRow(colors[0], colors[1]),
-            Text(
-              widget._level.exercises[0].correctColorName,
-              style: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
+            Round(
+              topLeftColor: getColorHexFromStr(COLOR_MAP[colors[0]]),
+              topRightColor: getColorHexFromStr(COLOR_MAP[colors[1]]),
+              bottomLeftColor: getColorHexFromStr(COLOR_MAP[colors[2]]),
+              bottomRightColor: getColorHexFromStr(COLOR_MAP[colors[3]]),
+              colorName: widget._level.exercises[0].correctColorName,
+              onRoundFinishedLoading: () => _controller.forward(),
             ),
-            buildColorRow(colors[2], colors[3]),
           ],
         ),
       ),
     );
   }
 
-  Expanded buildColorRow(
-    String left,
-    String right,
-  ) {
-    return Expanded(
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: ColorItem(
-              radius: 80.0,
-              color: getColorHexFromStr(COLOR_MAP[left]),
-              onAnimationFinished: _onAnimationFinished,
-            ),
-          ),
-          Expanded(
-            child: ColorItem(
-              radius: 80.0,
-              color: getColorHexFromStr(COLOR_MAP[right]),
-              onAnimationFinished: _onAnimationFinished,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void initExercise() {
-    _numberOfReadyItems = 0;
-
+  void initRound() {
     _controller = AnimationController(
         vsync: this,
         duration: Duration(
@@ -100,13 +74,5 @@ class _LevelScreenState extends State<LevelScreen>
         ));
 
     _controller.addListener(() => setState(() {}));
-  }
-
-  void _onAnimationFinished() {
-    _numberOfReadyItems++;
-    if (_numberOfReadyItems == 4) {
-      _controller.forward();
-      return;
-    }
   }
 }
