@@ -24,7 +24,7 @@ class LevelsRepository {
         ),
         Exercise(
           correctColorId: "gray",
-          colors: ["red", "brown", "orange", "black"],
+          colors: ["orange", "brown", "gray", "black"],
           correctColorName: "Cinzento",
         ),
       ],

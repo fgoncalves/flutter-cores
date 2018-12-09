@@ -7,12 +7,14 @@ class ColorItem extends StatefulWidget {
   final int color;
   final double radius;
   final void Function() onAnimationFinished;
+  final void Function() onTap;
 
   const ColorItem(
       {Key key,
       @required this.color,
       @required this.radius,
-      this.onAnimationFinished})
+      this.onAnimationFinished,
+      this.onTap})
       : super(key: key);
 
   @override
@@ -49,9 +51,12 @@ class _ColorItemState extends State<ColorItem>
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      radius: widget.radius * _controller.value,
-      backgroundColor: Color(widget.color),
+    return InkWell(
+      onTap: widget.onTap,
+      child: CircleAvatar(
+        radius: widget.radius * _controller.value,
+        backgroundColor: Color(widget.color),
+      ),
     );
   }
 }
