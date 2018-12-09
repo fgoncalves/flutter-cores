@@ -1,6 +1,5 @@
 import 'package:cores/base/Screen.dart';
 import 'package:cores/data/models/Level.dart';
-import 'package:cores/presentation/utils/colorutils.dart';
 import 'package:cores/presentation/widgets/Round.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -41,7 +40,8 @@ class _LevelScreenState extends State<LevelScreen>
 
   @override
   Widget build(BuildContext context) {
-    final colors = widget._level.exercises[_currentRoundIndex].colors;
+    var exercise = widget._level.exercises[_currentRoundIndex];
+    final colors = exercise.colors;
 
     return Screen(
       body: Padding(
@@ -56,13 +56,18 @@ class _LevelScreenState extends State<LevelScreen>
             ),
             Round(
               key: Key("$_currentRoundIndex"),
-              topLeftColor: getColorHexFromStr(COLOR_MAP[colors[0]]),
-              topRightColor: getColorHexFromStr(COLOR_MAP[colors[1]]),
-              bottomLeftColor: getColorHexFromStr(COLOR_MAP[colors[2]]),
-              bottomRightColor: getColorHexFromStr(COLOR_MAP[colors[3]]),
-              colorName:
-                  widget._level.exercises[_currentRoundIndex].correctColorName,
+              topLeftColorId: colors[0],
+              topRightColorId: colors[1],
+              bottomLeftColorId: colors[2],
+              bottomRightColorId: colors[3],
+              colorName: exercise.correctColorName,
               onRoundFinishedLoading: () => _controller.forward(),
+              onItemTapped: (tappedColorId) {
+                if (tappedColorId == exercise.correctColorId)
+                  print("CORRECT!");
+                else
+                  print("WRONG!");
+              },
             ),
           ],
         ),

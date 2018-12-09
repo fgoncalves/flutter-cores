@@ -7,10 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="deb642c2-4be5-46d6-af3f-cdfc600f419a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/data/repositories/LevelsRepository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/data/repositories/LevelsRepository.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/presentation/widgets/ColorItem.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/widgets/ColorItem.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/screens/LevelScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/screens/LevelScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/presentation/widgets/Round.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/presentation/widgets/Round.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -30,10 +28,10 @@
           <file leaf-file-name="Round.dart" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/lib/presentation/widgets/Round.dart">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1537">
-                  <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+                <state relative-caret-position="880">
+                  <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
                   <folding>
-                    <element signature="e#0#59#0" expanded="true" />
+                    <element signature="e#0#58#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -43,11 +41,14 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="LevelsRepository.dart" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/lib/data/repositories/LevelsRepository.dart">
+          <file leaf-file-name="LevelScreen.dart" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/lib/presentation/screens/LevelScreen.dart">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="748">
-                  <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+                <state relative-caret-position="860">
+                  <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+                  <folding>
+                    <element signature="e#0#40#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -84,12 +85,12 @@
         <option value="$PROJECT_DIR$/lib/data/models/Exercise.dart" />
         <option value="$PROJECT_DIR$/lib/presentation/utils/colorutils.dart" />
         <option value="$PROJECT_DIR$/lib/presentation/screens/ColorItem.dart" />
-        <option value="$PROJECT_DIR$/lib/presentation/widgets/Round.dart" />
         <option value="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/lib/presentation/screens/LevelScreen.dart" />
         <option value="$PROJECT_DIR$/lib/presentation/widgets/ColorItem.dart" />
         <option value="$PROJECT_DIR$/lib/data/repositories/LevelsRepository.dart" />
+        <option value="$PROJECT_DIR$/lib/presentation/widgets/Round.dart" />
+        <option value="$PROJECT_DIR$/lib/presentation/screens/LevelScreen.dart" />
       </list>
     </option>
   </component>
@@ -279,7 +280,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4503138" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4503138" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32845187" />
       <window_info anchor="right" id="Flutter Outline" order="3" />
@@ -287,7 +288,7 @@
       <window_info id="Captures" order="2" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18415241" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18415241" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -318,7 +319,7 @@
         <state relative-caret-position="1156">
           <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
           <folding>
-            <element signature="e#0#59#0" expanded="true" />
+            <element signature="e#0#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -635,16 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/presentation/widgets/Round.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1537">
-          <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
@@ -652,20 +643,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/presentation/screens/LevelScreen.dart">
+    <entry file="file://$PROJECT_DIR$/lib/data/repositories/LevelsRepository.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="56" column="14" lean-forward="true" selection-start-line="56" selection-start-column="14" selection-end-line="56" selection-end-column="14" />
+        <state relative-caret-position="850">
+          <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/presentation/widgets/Round.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="85" column="48" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#58#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/data/repositories/LevelsRepository.dart">
+    <entry file="file://$PROJECT_DIR$/lib/presentation/screens/LevelScreen.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        <state relative-caret-position="860">
+          <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
