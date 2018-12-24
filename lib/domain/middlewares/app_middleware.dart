@@ -1,4 +1,4 @@
-import 'package:cores/data/repositories/LevelsRepository.dart';
+import 'package:cores/data/repositories/level_repository.dart';
 import 'package:cores/domain/actions/actions.dart';
 import 'package:cores/domain/models/app_state.dart';
 import 'package:cores/domain/models/level.dart';
