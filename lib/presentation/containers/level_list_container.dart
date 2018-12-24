@@ -27,7 +27,6 @@ class LevelListContainer extends StatelessWidget {
 
         return LevelList(
           levels: vm.levels,
-          onTap: vm.onTap,
         );
       },
     );
@@ -37,20 +36,17 @@ class LevelListContainer extends StatelessWidget {
 class _ViewModel {
   final List<Level> levels;
   final bool loading;
-  final Function(Level) onTap;
   final Function() onRetryTapped;
 
   _ViewModel({
     this.levels,
     this.loading,
-    this.onTap,
     this.onRetryTapped,
   });
 
   static _ViewModel _fromStore(Store<AppState> store) => _ViewModel(
         levels: store.state.levels,
         loading: store.state.isLoadingLevels,
-        onTap: (level) => print('Need to dispatch action StartLevel($level)'),
         onRetryTapped: () => store.dispatch(LoadLevelList()),
       );
 }

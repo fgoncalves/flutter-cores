@@ -4,12 +4,10 @@ import 'package:flutter/material.dart';
 
 class LevelList extends StatelessWidget {
   final List<Level> levels;
-  final Function(Level) onTap;
 
   const LevelList({
     Key key,
     this.levels = const [],
-    this.onTap,
   }) : super(key: key);
 
   @override
@@ -29,7 +27,7 @@ class LevelList extends StatelessWidget {
     var level = levels[position];
     return LevelCard(
       level: level,
-      onTap: onTap,
+      onTap: (level) => print('push navigator for details'),
     );
   }
 }
