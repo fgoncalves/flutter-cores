@@ -25,6 +25,7 @@ class _LevelContainerState extends State<LevelContainer> {
         }
 
         return RoundWidget(
+          key: Key(vm.colorName),
           onTimeRunOut: vm.onTimeRunOut,
           onRightItemTapped: vm.onRightItemTapped,
           items: vm.items,
