@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           AppRoutes.home: (context) => Home(
-              onInit: () =>
-                  StoreProvider.of<AppState>(context).dispatch(LoadLevelList()))
+              onInit: () => StoreProvider.of<AppState>(context)
+                  .dispatch(LoadLevelList())),
         },
       ),
     );

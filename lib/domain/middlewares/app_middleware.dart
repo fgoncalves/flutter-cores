@@ -20,7 +20,7 @@ Middleware<AppState> loadLevelsMiddleware(LevelsRepository repository) {
         .map(Level.fromEntity)
         .toList()
         .then((levels) => store.dispatch(LoadedLevelList(levels)))
-        .catchError((_) => store.dispatch(LevelListNotLoaded()));
+        .catchError((e) => store.dispatch(LevelListNotLoaded()));
 
     next(action);
   };

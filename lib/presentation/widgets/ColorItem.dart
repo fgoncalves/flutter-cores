@@ -3,21 +3,19 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-enum ColorItemState { ready, inflating, shaking }
-
 class ColorItem extends StatefulWidget {
   final int color;
+  final bool isCorrect;
   final double radius;
-  final void Function() onAnimationFinished;
   final void Function() onTap;
 
-  const ColorItem(
-      {Key key,
-      @required this.color,
-      @required this.radius,
-      this.onAnimationFinished,
-      this.onTap})
-      : super(key: key);
+  const ColorItem({
+    Key key,
+    @required this.color,
+    @required this.isCorrect,
+    this.onTap,
+    this.radius = 80.0,
+  }) : super(key: key);
 
   @override
   _ColorItemState createState() => _ColorItemState();
@@ -26,12 +24,10 @@ class ColorItem extends StatefulWidget {
 class _ColorItemState extends State<ColorItem> with TickerProviderStateMixin {
   AnimationController _inflateAnimationController;
   AnimationController _sizeAnimationController;
-  ColorItemState _itemState;
   Random _random;
 
   @override
   void initState() {
-    _itemState = ColorItemState.inflating;
     _random = Random();
     _sizeAnimationController = _getSizeAnimationController();
 
@@ -41,15 +37,7 @@ class _ColorItemState extends State<ColorItem> with TickerProviderStateMixin {
           milliseconds: 300,
         ));
 
-    _inflateAnimationController.addListener(() {
-      if (_inflateAnimationController.value == 1) {
-        widget.onAnimationFinished();
-        setState(() => _itemState = ColorItemState.ready);
-        return;
-      }
-
-      setState(() {});
-    });
+    _inflateAnimationController.addListener(() => setState(() {}));
 
     var timer = (500 * _random.nextDouble()).toInt();
 
@@ -63,10 +51,12 @@ class _ColorItemState extends State<ColorItem> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (_itemState == ColorItemState.ready) {
-          _sizeAnimationController.forward(from: 0.0);
+        if (_inflateAnimationController.isAnimating) return;
+
+        if (widget.isCorrect)
           widget.onTap();
-        }
+        else
+          _sizeAnimationController.forward(from: 0.0);
       },
       child: CircleAvatar(
         radius: widget.radius * _inflateAnimationController.value -
