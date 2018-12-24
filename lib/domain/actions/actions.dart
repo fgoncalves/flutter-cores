@@ -34,3 +34,5 @@ class LoadedLevel {
     return 'LoadedLevel{level: $level}';
   }
 }
+
+class GoToNextRound {}

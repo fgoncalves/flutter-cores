@@ -1,3 +1,4 @@
+import 'package:cores/domain/actions/actions.dart';
 import 'package:cores/domain/models/app_state.dart';
 import 'package:cores/domain/models/item.dart';
 import 'package:cores/domain/state_selectors.dart';
@@ -50,9 +51,8 @@ class _ViewModel {
   });
 
   static _ViewModel fromStore(Store<AppState> store) => _ViewModel(
-        onTimeRunOut: () =>
-            print("Auto fire go to next round but from time running out"),
-        onRightItemTapped: () => print("Auto fire go to next round"),
+        onTimeRunOut: () => store.dispatch(GoToNextRound()),
+        onRightItemTapped: () => store.dispatch(GoToNextRound()),
         items: currentRoundItemsSelector(store.state),
         colorName: currentCorrectColorNameSelector(store.state),
         isLoading: isLoadingNewLevel(store.state),
