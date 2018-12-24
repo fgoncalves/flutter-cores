@@ -1,11 +1,11 @@
 import 'package:cores/base/Screen.dart';
-import 'package:cores/data/models/Level.dart';
+import 'package:cores/data/models/level_entity.dart';
 import 'package:cores/presentation/widgets/Round.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class LevelScreen extends StatefulWidget {
-  final Level _level;
+  final LevelEntity _level;
 
   const LevelScreen(this._level);
 

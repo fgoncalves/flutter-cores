@@ -1,13 +1,13 @@
 import 'package:cores/data/models/Exercise.dart';
 
-class Level {
+class LevelEntity {
   final String id;
   final String title;
   final String description;
   final String image;
   final List<Exercise> exercises;
 
-  const Level({
+  const LevelEntity({
     this.id,
     this.title,
     this.description,
@@ -16,13 +16,13 @@ class Level {
   })  : assert(id != null),
         assert(title != null);
 
-  Level copy({
+  LevelEntity copy({
     id,
     title,
     description,
     image,
   }) {
-    return Level(
+    return LevelEntity(
       id: id ?? this.id,
       title: title ?? this.title,
       description: description ?? this.description,
