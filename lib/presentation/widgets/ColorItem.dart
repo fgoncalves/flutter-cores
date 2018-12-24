@@ -8,12 +8,14 @@ class ColorItem extends StatefulWidget {
   final bool isCorrect;
   final double radius;
   final void Function(ColorItem) onTap;
+  final void Function() onReady;
 
   const ColorItem({
     Key key,
     @required this.color,
     @required this.isCorrect,
     this.onTap,
+    this.onReady,
     this.radius = 80.0,
   }) : super(key: key);
 
@@ -38,6 +40,11 @@ class _ColorItemState extends State<ColorItem> with TickerProviderStateMixin {
         ));
 
     _inflateAnimationController.addListener(() => setState(() {}));
+    _inflateAnimationController.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        widget.onReady();
+      }
+    });
 
     var timer = (500 * _random.nextDouble()).toInt();
 

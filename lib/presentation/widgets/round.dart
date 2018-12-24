@@ -27,11 +27,14 @@ class RoundWidget extends StatefulWidget {
 
 class _RoundWidgetState extends State<RoundWidget>
     with SingleTickerProviderStateMixin {
+  int _numberOfItemsReady;
   AnimationController _progressController;
 
   @override
   void initState() {
     SystemChrome.setEnabledSystemUIOverlays([]);
+
+    _numberOfItemsReady = 0;
 
     _progressController = AnimationController(
         vsync: this,
@@ -44,7 +47,6 @@ class _RoundWidgetState extends State<RoundWidget>
       if (_progressController.value == 1.0) widget.onTimeRunOut();
     });
 
-    _progressController.forward(from: 0);
     super.initState();
   }
 
@@ -93,6 +95,7 @@ class _RoundWidgetState extends State<RoundWidget>
               onTap: (item) {
                 if (item.isCorrect) widget.onRightItemTapped();
               },
+              onReady: onItemReady,
             ),
           ),
           Expanded(
@@ -102,10 +105,18 @@ class _RoundWidgetState extends State<RoundWidget>
               onTap: (item) {
                 if (item.isCorrect) widget.onRightItemTapped();
               },
+              onReady: onItemReady,
             ),
           ),
         ],
       ),
     );
+  }
+
+  void onItemReady() {
+    _numberOfItemsReady++;
+    if (_numberOfItemsReady == 4) {
+      _progressController.forward(from: 0);
+    }
   }
 }
