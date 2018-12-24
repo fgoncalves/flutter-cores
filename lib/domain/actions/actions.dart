@@ -14,12 +14,23 @@ class LoadedLevelList {
 }
 
 class LoadLevel {
-  final int level;
+  final Level level;
 
   const LoadLevel(this.level);
 
   @override
   String toString() {
     return 'LoadLevel{level: $level}';
+  }
+}
+
+class LoadedLevel {
+  final Level level;
+
+  const LoadedLevel(this.level);
+
+  @override
+  String toString() {
+    return 'LoadedLevel{level: $level}';
   }
 }

@@ -9,15 +9,18 @@ final appReducer = combineReducers<AppState>([
   TypedReducer<AppState, LevelListNotLoaded>(_levelList),
   TypedReducer<AppState, LoadedLevelList>(_levelList),
   TypedReducer<AppState, LoadLevel>(_loadLevel),
+  TypedReducer<AppState, LoadedLevel>(_loadedLevel),
 ]);
 
-AppState _levelList(AppState state, action) => AppState(
+AppState _levelList(AppState state, action) => state.copy(
       isLoadingLevels: loadingReducer(state.isLoadingLevels, action),
       levels: levelListReducer(state.levels, action),
-      currentLevel: state.currentLevel,
     );
 
-AppState _loadLevel(AppState state, LoadLevel action) => AppState(
-    isLoadingLevels: state.isLoadingLevels,
-    levels: state.levels,
-    currentLevel: state.levels[action.level].copy(currentRound: 0));
+AppState _loadLevel(AppState state, LoadLevel action) => state.copy(
+      isLoadingNewLevel: loadingReducer(state.isLoadingNewLevel, action),
+    );
+
+AppState _loadedLevel(AppState state, LoadedLevel action) => state.copy(
+    isLoadingNewLevel: loadingReducer(state.isLoadingNewLevel, action),
+    currentLevel: action.level.copy(currentRound: 0));

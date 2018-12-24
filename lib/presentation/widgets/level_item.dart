@@ -5,7 +5,7 @@ import 'CircularImage.dart';
 
 class LevelCard extends StatelessWidget {
   final Level level;
-  final void Function(Level) onTap;
+  final void Function(BuildContext, Level) onTap;
 
   const LevelCard({
     Key key,
@@ -17,7 +17,7 @@ class LevelCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onTap(level),
+      onTap: () => onTap(context, level),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

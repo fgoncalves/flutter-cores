@@ -13,7 +13,7 @@ class LevelListContainer extends StatelessWidget {
     return StoreConnector<AppState, _ViewModel>(
       converter: _ViewModel.fromStore,
       builder: (context, vm) {
-        if (vm.loading) {
+        if (vm.isLoading) {
           return Center(
             child: CircularProgressIndicator(),
           );
@@ -35,18 +35,18 @@ class LevelListContainer extends StatelessWidget {
 
 class _ViewModel {
   final List<Level> levels;
-  final bool loading;
+  final bool isLoading;
   final Function() onRetryTapped;
 
   _ViewModel({
     this.levels,
-    this.loading,
+    this.isLoading,
     this.onRetryTapped,
   });
 
   static _ViewModel fromStore(Store<AppState> store) => _ViewModel(
         levels: store.state.levels,
-        loading: store.state.isLoadingLevels,
+        isLoading: store.state.isLoadingLevels,
         onRetryTapped: () => store.dispatch(LoadLevelList()),
       );
 }

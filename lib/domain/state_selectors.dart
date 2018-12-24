@@ -5,11 +5,15 @@ import 'package:cores/domain/models/round.dart';
 
 Level currentLevelSelector(AppState state) => state.currentLevel;
 
-Round currentRoundSelector(AppState state) => currentLevelSelector(state)
-    .rounds[currentLevelSelector(state).currentRound];
+Round currentRoundSelector(AppState state) {
+  return currentLevelSelector(state)
+    ?.rounds[currentLevelSelector(state)?.currentRound];
+}
 
 List<Item> currentRoundItemsSelector(AppState state) =>
-    currentRoundSelector(state).items;
+    currentRoundSelector(state)?.items;
 
 String currentCorrectColorNameSelector(AppState state) =>
-    currentRoundSelector(state).colorName;
+    currentRoundSelector(state)?.colorName;
+
+bool isLoadingNewLevel(AppState state) => state.isLoadingNewLevel;

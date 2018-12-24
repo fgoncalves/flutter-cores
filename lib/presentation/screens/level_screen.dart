@@ -1,11 +1,13 @@
 import 'package:cores/base/Screen.dart';
-import 'package:cores/presentation/containers/round_container.dart';
+import 'package:cores/presentation/containers/level_container.dart';
 import 'package:flutter/material.dart';
 
 class LevelScreen extends StatefulWidget {
-  final int level;
+  final Function() onInit;
 
-  const LevelScreen(this.level) : assert(level != null);
+  const LevelScreen({
+    @required this.onInit,
+  }) : assert(onInit != null);
 
   @override
   _LevelScreenState createState() => _LevelScreenState();
@@ -13,9 +15,15 @@ class LevelScreen extends StatefulWidget {
 
 class _LevelScreenState extends State<LevelScreen> {
   @override
+  void initState() {
+    widget.onInit();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Screen(
-      body: RoundContainer(),
+      body: LevelContainer(),
     );
   }
 }

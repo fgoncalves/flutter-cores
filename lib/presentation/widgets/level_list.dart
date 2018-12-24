@@ -1,6 +1,10 @@
+import 'package:cores/domain/actions/actions.dart';
+import 'package:cores/domain/models/app_state.dart';
 import 'package:cores/domain/models/level.dart';
+import 'package:cores/presentation/screens/level_screen.dart';
 import 'package:cores/presentation/widgets/level_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
 class LevelList extends StatelessWidget {
   final List<Level> levels;
@@ -27,7 +31,12 @@ class LevelList extends StatelessWidget {
     var level = levels[position];
     return LevelCard(
       level: level,
-      onTap: (level) => print('push navigator for details'),
+      onTap: (context, level) => Navigator.of(context).push(MaterialPageRoute(
+            builder: (_) => LevelScreen(onInit: () {
+                  StoreProvider.of<AppState>(context)
+                      .dispatch(LoadLevel(level));
+                }),
+          )),
     );
   }
 }
