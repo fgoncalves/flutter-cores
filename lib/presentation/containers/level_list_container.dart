@@ -11,7 +11,7 @@ class LevelListContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, _ViewModel>(
-      converter: _ViewModel._fromStore,
+      converter: _ViewModel.fromStore,
       builder: (context, vm) {
         if (vm.loading) {
           return Center(
@@ -44,7 +44,7 @@ class _ViewModel {
     this.onRetryTapped,
   });
 
-  static _ViewModel _fromStore(Store<AppState> store) => _ViewModel(
+  static _ViewModel fromStore(Store<AppState> store) => _ViewModel(
         levels: store.state.levels,
         loading: store.state.isLoadingLevels,
         onRetryTapped: () => store.dispatch(LoadLevelList()),

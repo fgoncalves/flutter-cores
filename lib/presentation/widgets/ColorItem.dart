@@ -7,7 +7,7 @@ class ColorItem extends StatefulWidget {
   final int color;
   final bool isCorrect;
   final double radius;
-  final void Function() onTap;
+  final void Function(ColorItem) onTap;
 
   const ColorItem({
     Key key,
@@ -54,7 +54,7 @@ class _ColorItemState extends State<ColorItem> with TickerProviderStateMixin {
         if (_inflateAnimationController.isAnimating) return;
 
         if (widget.isCorrect)
-          widget.onTap();
+          widget.onTap(widget);
         else
           _sizeAnimationController.forward(from: 0.0);
       },
