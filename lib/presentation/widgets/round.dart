@@ -25,7 +25,8 @@ class RoundWidget extends StatefulWidget {
   _RoundWidgetState createState() => _RoundWidgetState();
 }
 
-class _RoundWidgetState extends State<RoundWidget> with SingleTickerProviderStateMixin {
+class _RoundWidgetState extends State<RoundWidget>
+    with SingleTickerProviderStateMixin {
   AnimationController _progressController;
 
   @override
@@ -43,6 +44,7 @@ class _RoundWidgetState extends State<RoundWidget> with SingleTickerProviderStat
       if (_progressController.value == 1.0) widget.onTimeRunOut();
     });
 
+    _progressController.forward(from: 0);
     super.initState();
   }
 
@@ -55,7 +57,8 @@ class _RoundWidgetState extends State<RoundWidget> with SingleTickerProviderStat
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return Padding(
+      padding: const EdgeInsets.only(top: 24.0, left: 16.0, right: 16.0),
       child: Column(children: <Widget>[
         LinearProgressIndicator(
           value: 1.0 - _progressController.value,
