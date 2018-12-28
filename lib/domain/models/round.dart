@@ -1,4 +1,5 @@
 import 'package:cores/data/models/round_entity.dart';
+import 'package:cores/domain/models/color.dart';
 import 'package:cores/domain/models/item.dart';
 
 class Round {
@@ -15,7 +16,10 @@ class Round {
   static Round fromEntity(RoundEntity entity) => Round(
         colorName: entity.correctColorName,
         items: entity.colors
-            .map((colorId) => Item(colorId, entity.correctColorId == colorId))
+            .map((color) => Item(
+                  Color.fromEntity(color),
+                  entity.correctColorId == color.id,
+                ))
             .toList(),
       );
 

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cores/data/models/color_entity.dart';
 import 'package:cores/data/models/level_entity.dart';
 import 'package:cores/data/models/round_entity.dart';
 
@@ -14,20 +15,71 @@ class LevelsRepository {
           description: 'This is the beginning',
           image:
               'https://c1.staticflickr.com/6/5464/9182591451_94c943d786_b.jpg',
-          exercises: [
+          rounds: [
             RoundEntity(
               correctColorId: "blue",
-              colors: ["yellow", "blue", "green", "red"],
+              colors: [
+                ColorEntity(
+                  id: "yellow",
+                  name: "Amarelo",
+                ),
+                ColorEntity(
+                  id: "blue",
+                  name: "Azul",
+                ),
+                ColorEntity(
+                  id: "green",
+                  name: "Verde",
+                ),
+                ColorEntity(
+                  id: "red",
+                  name: "Vermelho",
+                ),
+              ],
               correctColorName: "Azul",
             ),
             RoundEntity(
               correctColorId: "light-blue",
-              colors: ["light-blue", "beige", "pink", "purple"],
+              colors: [
+                ColorEntity(
+                  id: "light-blue",
+                  name: "Azul cueca",
+                ),
+                ColorEntity(
+                  id: "beige",
+                  name: "Bege",
+                ),
+                ColorEntity(
+                  id: "pink",
+                  name: "Côr de rosa",
+                ),
+                ColorEntity(
+                  id: "purple",
+                  name: "roxo",
+                ),
+              ],
               correctColorName: "Azul cueca",
             ),
             RoundEntity(
               correctColorId: "gray",
-              colors: ["orange", "brown", "gray", "black"],
+              colors: [
+                ColorEntity(
+                  id: "orange",
+                  name: "Côr de laranja",
+                ),
+                ColorEntity(
+                  id: "brown",
+                  name: "Castanho",
+                ),
+                ColorEntity(
+                  id: "gray",
+                  name: "Cinzento",
+                ),
+                ColorEntity(
+                  id: "black",
+                  name: "Preto",
+                ),
+              ],
               correctColorName: "Cinzento",
             ),
           ],

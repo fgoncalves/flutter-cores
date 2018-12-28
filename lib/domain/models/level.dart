@@ -25,7 +25,7 @@ class Level {
       title: level.title,
       description: level.description,
       image: level.image,
-      rounds: level.exercises?.map(Round.fromEntity)?.toList(),
+      rounds: level.rounds?.map(Round.fromEntity)?.toList(),
     );
   }
 

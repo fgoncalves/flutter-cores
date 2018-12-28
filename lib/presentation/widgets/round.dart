@@ -90,7 +90,7 @@ class _RoundWidgetState extends State<RoundWidget>
         children: <Widget>[
           Expanded(
             child: ColorItem(
-              color: getColorHexFromStr(COLOR_MAP[leftItem.colorId]),
+              color: getColorHexFromStr(COLOR_MAP[leftItem.color.id]),
               isCorrect: leftItem.isCorrect,
               onTap: (item) {
                 if (item.isCorrect) widget.onRightItemTapped();
@@ -100,7 +100,7 @@ class _RoundWidgetState extends State<RoundWidget>
           ),
           Expanded(
             child: ColorItem(
-              color: getColorHexFromStr(COLOR_MAP[rightItem.colorId]),
+              color: getColorHexFromStr(COLOR_MAP[rightItem.color.id]),
               isCorrect: rightItem.isCorrect,
               onTap: (item) {
                 if (item.isCorrect) widget.onRightItemTapped();
