@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:cores/data/models/exercise.dart';
 import 'package:cores/data/models/level_entity.dart';
+import 'package:cores/data/models/round_entity.dart';
 
 class LevelsRepository {
   final List<LevelEntity> _levels;
@@ -15,17 +15,17 @@ class LevelsRepository {
           image:
               'https://c1.staticflickr.com/6/5464/9182591451_94c943d786_b.jpg',
           exercises: [
-            Exercise(
+            RoundEntity(
               correctColorId: "blue",
               colors: ["yellow", "blue", "green", "red"],
               correctColorName: "Azul",
             ),
-            Exercise(
+            RoundEntity(
               correctColorId: "light-blue",
               colors: ["light-blue", "beige", "pink", "purple"],
               correctColorName: "Azul cueca",
             ),
-            Exercise(
+            RoundEntity(
               correctColorId: "gray",
               colors: ["orange", "brown", "gray", "black"],
               correctColorName: "Cinzento",

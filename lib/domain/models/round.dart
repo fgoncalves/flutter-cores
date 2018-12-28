@@ -1,4 +1,4 @@
-import 'package:cores/data/models/exercise.dart';
+import 'package:cores/data/models/round_entity.dart';
 import 'package:cores/domain/models/item.dart';
 
 class Round {
@@ -12,7 +12,7 @@ class Round {
     this.colorName = "",
   });
 
-  static Round fromEntity(Exercise entity) => Round(
+  static Round fromEntity(RoundEntity entity) => Round(
         colorName: entity.correctColorName,
         items: entity.colors
             .map((colorId) => Item(colorId, entity.correctColorId == colorId))

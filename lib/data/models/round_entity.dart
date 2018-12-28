@@ -1,9 +1,9 @@
-class Exercise {
+class RoundEntity {
   final List<String> colors;
   final String correctColorId;
   final String correctColorName;
 
-  const Exercise({
+  const RoundEntity({
     this.colors,
     this.correctColorId,
     this.correctColorName,

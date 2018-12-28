@@ -1,11 +1,11 @@
-import 'package:cores/data/models/exercise.dart';
+import 'package:cores/data/models/round_entity.dart';
 
 class LevelEntity {
   final String id;
   final String title;
   final String description;
   final String image;
-  final List<Exercise> exercises;
+  final List<RoundEntity> exercises;
 
   const LevelEntity({
     this.id,
