@@ -1,4 +1,4 @@
-import 'package:cores/data/models/Exercise.dart';
+import 'package:cores/data/models/exercise.dart';
 
 class LevelEntity {
   final String id;

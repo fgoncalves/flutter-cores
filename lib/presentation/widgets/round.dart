@@ -1,6 +1,6 @@
 import 'package:cores/domain/models/item.dart';
 import 'package:cores/presentation/utils/colorutils.dart';
-import 'package:cores/presentation/widgets/ColorItem.dart';
+import 'package:cores/presentation/widgets/color_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

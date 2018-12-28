@@ -1,7 +1,6 @@
 import 'package:cores/domain/models/level.dart';
+import 'package:cores/presentation/widgets/circular_image.dart';
 import 'package:flutter/material.dart';
-
-import 'CircularImage.dart';
 
 class LevelCard extends StatelessWidget {
   final Level level;

@@ -1,4 +1,4 @@
-import 'package:cores/data/models/Exercise.dart';
+import 'package:cores/data/models/exercise.dart';
 import 'package:cores/domain/models/item.dart';
 
 class Round {

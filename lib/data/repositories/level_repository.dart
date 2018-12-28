@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:cores/data/models/Exercise.dart';
+import 'package:cores/data/models/exercise.dart';
 import 'package:cores/data/models/level_entity.dart';
 
 class LevelsRepository {
