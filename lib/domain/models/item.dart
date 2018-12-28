@@ -1,7 +1,7 @@
-import 'package:cores/domain/models/color.dart';
+import 'package:cores/domain/models/color_item.dart';
 
 class Item {
-  final Color color;
+  final ColorItem color;
   final bool isCorrect;
 
   const Item(

@@ -20,8 +20,7 @@ class LevelList extends StatelessWidget {
       gridDelegate:
           SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemCount: levels.length,
-      itemBuilder: (BuildContext context, int position) =>
-          _createCard(context, position),
+      itemBuilder: _createCard,
     );
   }
 

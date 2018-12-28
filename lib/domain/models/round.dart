@@ -1,5 +1,5 @@
 import 'package:cores/data/models/round_entity.dart';
-import 'package:cores/domain/models/color.dart';
+import 'package:cores/domain/models/color_item.dart';
 import 'package:cores/domain/models/item.dart';
 
 class Round {
@@ -17,7 +17,7 @@ class Round {
         colorName: entity.correctColorName,
         items: entity.colors
             .map((color) => Item(
-                  Color.fromEntity(color),
+                  ColorItem.fromEntity(color),
                   entity.correctColorId == color.id,
                 ))
             .toList(),
