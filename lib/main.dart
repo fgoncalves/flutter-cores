@@ -3,6 +3,7 @@ import 'package:cores/domain/middlewares/app_middleware.dart';
 import 'package:cores/domain/models/app_state.dart';
 import 'package:cores/domain/reducers/app_reducer.dart';
 import 'package:cores/presentation/routes/routes.dart';
+import 'package:cores/presentation/screens/end_page_screen.dart';
 import 'package:cores/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
           AppRoutes.home: (context) => Home(
               onInit: () => StoreProvider.of<AppState>(context)
                   .dispatch(LoadLevelList())),
+          AppRoutes.end_page: (context) => LevelEndPageScreen(),
         },
       ),
     );

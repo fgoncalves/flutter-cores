@@ -67,6 +67,8 @@ class Level {
       rounds.hashCode ^
       currentRound.hashCode;
 
+  bool isInLastRound() => currentRound == rounds.length - 1;
+
   @override
   String toString() {
     return 'Level{id: $id, title: $title, description: $description, image: $image, rounds: $rounds, currentLevel: $currentRound}';

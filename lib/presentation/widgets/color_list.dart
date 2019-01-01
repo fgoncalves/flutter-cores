@@ -32,7 +32,7 @@ class ColorList extends StatelessWidget {
             ListTile(
               leading: CircleAvatar(
                 backgroundColor: Color(getColorHexFromStr(COLOR_MAP[item.id])),
-                radius: 80.0,
+                radius: 20.0,
               ),
               title: Text(item.name),
             ),

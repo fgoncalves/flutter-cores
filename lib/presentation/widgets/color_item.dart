@@ -32,19 +32,7 @@ class _ColorItemState extends State<ColorItem> with TickerProviderStateMixin {
   void initState() {
     _random = Random();
     _sizeAnimationController = _getSizeAnimationController();
-
-    _inflateAnimationController = AnimationController(
-        vsync: this,
-        duration: Duration(
-          milliseconds: 300,
-        ));
-
-    _inflateAnimationController.addListener(() => setState(() {}));
-    _inflateAnimationController.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        widget.onReady();
-      }
-    });
+    _inflateAnimationController = _getInflateAnimationController();
 
     var timer = (500 * _random.nextDouble()).toInt();
 
@@ -52,6 +40,13 @@ class _ColorItemState extends State<ColorItem> with TickerProviderStateMixin {
         () => _inflateAnimationController.forward());
 
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _inflateAnimationController.dispose();
+    _sizeAnimationController.dispose();
+    super.dispose();
   }
 
   @override
@@ -87,6 +82,22 @@ class _ColorItemState extends State<ColorItem> with TickerProviderStateMixin {
 
     controller.addListener(() {
       setState(() {});
+    });
+    return controller;
+  }
+
+  AnimationController _getInflateAnimationController() {
+    AnimationController controller = AnimationController(
+        vsync: this,
+        duration: Duration(
+          milliseconds: 300,
+        ));
+
+    controller.addListener(() => setState(() {}));
+    controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        widget.onReady();
+      }
     });
     return controller;
   }
